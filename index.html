@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Radio Station MP3 Scraper</title>
+    <!-- Your CSS links -->
+</head>
+<body>
+    <h1>Radio Station MP3 Scraper</h1>
+    <input type="text" id="episode" placeholder="Enter Episode Number">
+    <button onclick="getMP3()">Get MP3</button>
+    
+    <script>
+        function getMP3() {
+            const episodeNumber = document.getElementById('episode').value;
+            fetch(`/get_mp3?episode=${episodeNumber}`)
+                .then(response => response.json())
+                .then(data => {
+                    // Handle the response, maybe show the MP3 link to the user
+                    console.log(data);
+                })
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>
